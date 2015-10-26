@@ -1,5 +1,21 @@
-<h1>Master content</h1>
+<!DOCTYPE html>
 
-@yield('content')
+<head>
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}"/>
+</head>
+@include('layouts.header')
 
-<h2>Footer Master Content</h2>
+<div class="content-wrapper">
+    <div class="container">
+        @yield('content')
+    </div>
+</div>
+
+@include('layouts.footer')
+
+<script>
+    var PUBLIC_FOLDER='public/';
+</script>
+</html>

@@ -20,7 +20,7 @@
                     </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="/hello2/public/auth/login">
+                    <form class="form-horizontal" role="form" method="POST" action="/laracast/public/auth/login">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">

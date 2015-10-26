@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('helloworld');
 });
 
+Route::get('articles/', 'ArticlesController@index');
+Route::get('home/', 'HomeController@showProfiles');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
