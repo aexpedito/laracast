@@ -15,11 +15,13 @@ Route::get('/', function () {
     return view('helloworld');
 });
 
-Route::get('home/', 'HomeController@showProfiles');
-Route::get('articles', 'ArticlesController@index');
-Route::get('articles/create', 'ArticlesController@create');
-Route::post('articles/create', 'ArticlesController@store');
-Route::post('articles/{id}', 'ArticlesController@show');
+//Route::get('home/', 'HomeController@showProfiles');
+//Route::get('articles', 'ArticlesController@index');
+//Route::get('articles/create', 'ArticlesController@create');
+//Route::post('articles/create', 'ArticlesController@store');
+//Route::post('articles/{id}', 'ArticlesController@show');
+
+Route::resource('articles', 'ArticlesController');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

@@ -37,4 +37,15 @@ class ArticlesController extends Controller
         $article = Article::findOrFail($id);
         return view('articles.show',  compact($article));
     }
+    
+    public function edit($id){
+        $article = Article::findOrFail($id);
+        return view('articles.edit', ['article'=>$article]);
+    }
+    
+    public function update($id, Requests\ArticleRequest $request){
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+        return redirect('articles');
+    }
 }
