@@ -1,11 +1,13 @@
 <?php namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Article;
 use Carbon\Carbon;
+use App\Http\Requests\CreateArticleRequest;
+
 
 class ArticlesController extends Controller
 {
@@ -23,9 +25,10 @@ class ArticlesController extends Controller
         return view('articles.create_form');
     }
     
-    public function store()
+    public function store(Request $request)
     {
-        $input = Request::all();
+        $this->validate($request, ['title'=>'required', 'body'=>'required']);
+        $input = $request->all();
         Article::create($input);
         return redirect('articles');
     }
