@@ -10,7 +10,8 @@ class Article extends Model {
     protected $fillable = [
         'title',
         'body',
-        'published_at'
+        'published_at',
+        'user_id',
     ];
 
     public function setPublishedAtAttribute($date) {
@@ -23,5 +24,9 @@ class Article extends Model {
     
     public function scopeUnpublished($query){
         $query->where('published_at','>', Carbon::now());
+    }
+    
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }
