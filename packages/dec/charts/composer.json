@@ -1,0 +1,13 @@
+{
+    "name": "dec/charts",
+    "description": "Charts",
+    "type": "type",
+    "authors": [
+        {
+            "name": "Afonso",
+            "email": "afonso.expedito@decws.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
