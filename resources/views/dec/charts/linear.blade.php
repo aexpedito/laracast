@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html>
     <head>
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}"/>
         <link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}"/>
@@ -42,8 +42,6 @@
         </script>
         <div id="chart_div"></div>
 
-
-        <div ng-controller="ChartController" id="chart-ang"></div>
         <div ng-controller="ChartControllerBubble" id="series_chart_div"></div>
     </body>
 </html>
