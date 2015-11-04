@@ -26,7 +26,7 @@ class ChartsController extends Controller{
         return $array;
     }
     
-    public function getDataChart()
+    public function getDataChart2()
     {
         $result = DB::select('select day ,sum(email) from report_daily group by day order by day');
         return $result;
