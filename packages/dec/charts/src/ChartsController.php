@@ -10,6 +10,6 @@ class ChartsController extends Controller{
     }
         
     public function index(){
-        die('dffdf');
+        return view('dec/charts/linear');
     }
 }
