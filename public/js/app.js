@@ -1,8 +1,8 @@
 (function () {
 
-    google.load('visualization', '1', {packages: ['corechart']});
+    google.load('visualization', '1', {packages: ['corechart','bar']});
     google.setOnLoadCallback(function () {
-        angular.bootstrap(document.body, ['app'])
+        angular.bootstrap(document.body, ['app']);
     });
 
 
@@ -25,17 +25,37 @@
             chart.draw(data, options);
         }]);
 
-    app.controller('ChartControllerBubble', ['$scope', '$http', function ($scope, $http) {
+    app.controller('ChartControllerLine', ['$scope', '$http', function ($scope, $http) {
 
             $http.get('http://localhost/laracast/public/charts/getchart').success(function (dataJson) {
-               
-                var data = new google.visualization.DataTable(dataJson);                          
-                
+
+                var data = new google.visualization.DataTable(dataJson);
+
                 var options = {
                     title: 'Company Email performance'
                 };
 
                 var chart = new google.visualization.LineChart(document.getElementById('series_chart_div'));
+                chart.draw(data, options);
+
+            });
+
+        }]);
+
+    app.controller('ChartControllerColumn', ['$scope', '$http', function ($scope, $http) {
+
+            $http.get('http://localhost/laracast/public/charts/getchartColumn').success(function (dataJson) {
+
+                var data = new google.visualization.DataTable(dataJson);
+
+                var options = {
+                    chart: {
+                        title: 'Total email Open',
+                        subtitle: 'Total email Open',
+                    }
+                };
+
+                var chart = new google.charts.Bar(document.getElementById('series_chart_column'));
                 chart.draw(data, options);
 
             });

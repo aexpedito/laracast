@@ -42,7 +42,8 @@
         </script>
         <div id="chart_div"></div>
 
-        <div ng-controller="ChartControllerBubble" id="series_chart_div"></div>
+        <div ng-controller="ChartControllerLine" id="series_chart_div"></div>
+        <div ng-controller="ChartControllerColumn" id="series_chart_column"></div>
     </body>
 </html>
 
