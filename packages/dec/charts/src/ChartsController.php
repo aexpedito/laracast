@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\User;
 use DB;
+use Illuminate\Support\Facades\Request;
 
 class ChartsController extends Controller{
     
