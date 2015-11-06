@@ -1,6 +1,6 @@
 (function () {
 
-    google.load('visualization', '1', {packages: ['corechart','bar']});
+    google.load('visualization', '1', {packages: ['corechart', 'bar']});
     google.setOnLoadCallback(function () {
         angular.bootstrap(document.body, ['app']);
     });
@@ -27,18 +27,34 @@
 
     app.controller('ChartControllerLine', ['$scope', '$http', function ($scope, $http) {
 
-            $http.get('http://localhost/laracast/public/charts/getchart').success(function (dataJson) {
-
+            $scope.url = 'http://localhost/laracast/public/charts/getchart';
+            
+            
+            $http.get($scope.url).success(function (dataJson) {
                 var data = new google.visualization.DataTable(dataJson);
-
                 var options = {
-                    title: 'Company Email performance'
+                    title: 'Company Email Sent/day'
                 };
-
                 var chart = new google.visualization.LineChart(document.getElementById('series_chart_div'));
                 chart.draw(data, options);
-
             });
+
+            $scope.changeRange = function () {
+                var parameters = '?from='+$scope.dateFrom+ '&to=' + $scope.dateTo;
+                
+                $http.get($scope.url + parameters).success(function (dataJson) {
+                    var data = new google.visualization.DataTable(dataJson);
+                    var options = {
+                        title: 'Company Email Sent/day'
+                    };
+                    var chart = new google.visualization.LineChart(document.getElementById('series_chart_div'));
+                    chart.draw(data, options);
+                });
+            };
+            
+            $scope.test = function ($scope) {
+                console.log($scope.divid);
+            };
 
         }]);
 
@@ -50,7 +66,7 @@
 
                 var options = {
                     chart: {
-                        title: 'Total email Open',
+                        title: 'Total email Open/Day',
                         subtitle: 'Total email Open',
                     }
                 };
