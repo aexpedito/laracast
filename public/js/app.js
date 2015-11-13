@@ -28,20 +28,24 @@
     app.controller('ChartControllerLine', ['$scope', '$http', function ($scope, $http) {
 
             $scope.url = 'http://localhost/laracast/public/charts/getchart';
-            
-            
+
+
             $http.get($scope.url).success(function (dataJson) {
                 var data = new google.visualization.DataTable(dataJson);
                 var options = {
                     title: 'Company Email Sent/day'
                 };
-                var chart = new google.visualization.LineChart(document.getElementById('series_chart_div'));
-                chart.draw(data, options);
+                var i;
+                var items = document.getElementsByClassName('series_chart');
+                for(i=0;i<items.length;i++){
+                    var chart = new google.visualization.LineChart(items[i]);
+                    chart.draw(data, options);
+                }
             });
 
             $scope.changeRange = function () {
-                var parameters = '?from='+$scope.dateFrom+ '&to=' + $scope.dateTo;
-                
+                var parameters = '?from=' + $scope.dateFrom + '&to=' + $scope.dateTo;
+
                 $http.get($scope.url + parameters).success(function (dataJson) {
                     var data = new google.visualization.DataTable(dataJson);
                     var options = {
@@ -51,7 +55,7 @@
                     chart.draw(data, options);
                 });
             };
-            
+
             $scope.test = function ($scope) {
                 console.log($scope.divid);
             };

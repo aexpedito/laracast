@@ -9,5 +9,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "khill/lavacharts": "2.5.*"
+    }
 }

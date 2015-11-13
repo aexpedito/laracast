@@ -27,4 +27,7 @@ class ChartsServiceProvider extends ServiceProvider {
         $this->app->make('Dec\Charts\ChartsController');
     }
 
+//    public function on_start(){
+//        require $this->getPackagePath() . '/vendor/autoload.php';
+//    }
 }

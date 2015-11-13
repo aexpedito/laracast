@@ -28,7 +28,7 @@
             <button type="button" ng-click='changeRange()'>Change</button>
             
             <button type="button" ng-click='test()'>Test</button>
-            <div id="series_chart_div" ng-bind-></div>
+            <div class="series_chart" ng-bind-></div>
         </div>
         
         
