@@ -9,4 +9,12 @@
         </article>
         @endforeach
     @endif
+    
+<div ng-app="appdirective" ng-controller="SomeController">
+    <div>
+        <input type="text" ng-model="color" placeholder="Enter a color" />
+        <hello-world></hello-world>
+    </div>
+</div>
+    
 @endsection
